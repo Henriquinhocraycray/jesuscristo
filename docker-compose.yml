@@ -1,0 +1,51 @@
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: mqtt-broker
+    ports:
+      - "1883:1883"
+      - "8883:8883"
+    volumes:
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./mosquitto/config/passwd:/mosquitto/config/passwd:ro
+      - ./mosquitto/config/acl.conf:/mosquitto/config/acl.conf:ro
+      - ./mosquitto/certs:/mosquitto/certs:ro
+      - mosquitto-data:/mosquitto/data
+      - mosquitto-log:/mosquitto/log
+    restart: unless-stopped
+
+  sensor-temp:
+    image: otaviano1704/iot-sensor:latest
+    container_name: iot-sensor-temp
+    environment:
+      - MQTT_BROKER=mosquitto
+      - MQTT_PORT=8883
+      - MQTT_USER=sensor_user
+      - MQTT_PASS=${MQTT_SENSOR_PASSWORD}
+      - SENSOR_ID=temp_sensor_01
+      - MQTT_USE_TLS=true
+    depends_on:
+      - mosquitto
+    restart: unless-stopped
+
+  nodered:
+    image: nodered/node-red:latest
+    container_name: nodered-dashboard
+    ports:
+      - "1880:1880"
+    volumes:
+      - nodered-data:/data
+    environment:
+      - MQTT_BROKER=mosquitto
+      - MQTT_PORT=8883
+      - MQTT_USER=nodered_user
+      - MQTT_PASS=${MQTT_NODERED_PASSWORD}
+    depends_on:
+      - mosquitto
+    restart: unless-stopped
+
+volumes:
+  mosquitto-data:
+  mosquitto-log:
+  nodered-data:

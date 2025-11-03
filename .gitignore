@@ -1,0 +1,12 @@
+﻿# Arquivos sensíveis
+.env
+SENHAS_BACKUP.txt
+*.ps1
+
+# Volumes Docker
+mosquitto/data/
+mosquitto/log/
+
+# Arquivos temporários
+*.tmp
+*.log
