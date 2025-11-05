@@ -174,3 +174,12 @@ docker exec -it mqtt-broker sh
 Em caso de dúvidas técnicas (não sobre as vulnerabilidades!):
 - Abra uma issue no GitHub
 - Contate o instrutor
+
+
+## ?? Configuração de Segurança
+
+Este sistema está configurado para usar **APENAS TLS/SSL**:
+- Porta 8883: MQTT com TLS ? (ÚNICA porta disponível)
+- Porta 1883: REMOVIDA (não há comunicação sem criptografia)
+
+**Todas as conexões DEVEM usar TLS!**
