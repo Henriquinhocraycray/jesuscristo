@@ -87,14 +87,14 @@ cat << "EOF"
 ║   ✅ CONFIGURAÇÃO CONCLUÍDA!                                  ║
 ╚═══════════════════════════════════════════════════════════════╝
 
-📊 Dashboard: http://localhost:1880/ui
+📊 Dashboard: http://localhost:1880/dashboard
 
 EOF
 
 docker compose ps
 
 if command -v xdg-open &> /dev/null; then
-    xdg-open "http://localhost:1880/ui" 2>/dev/null &
+    xdg-open "http://localhost:1880/dashboard" 2>/dev/null &
 elif command -v open &> /dev/null; then
-    open "http://localhost:1880/ui" 2>/dev/null &
+    open "http://localhost:1880/dashboard" 2>/dev/null &
 fi
