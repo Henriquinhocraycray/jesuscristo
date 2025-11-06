@@ -10,3 +10,22 @@ mosquitto/log/
 # Arquivos temporários
 *.tmp
 *.log
+# Senhas e dados sensíveis
+.env
+mosquitto/config/passwd
+
+# Dados e logs
+mosquitto/data/
+mosquitto/log/
+nodered-data/
+
+# Node modules
+node_modules/
+package-lock.json
+
+# Backups
+*.backup
+mosquitto.conf.backup
+
+# Arquivos temporários
+*.log
