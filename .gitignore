@@ -1,12 +1,11 @@
-Ôªø# Arquivos sens√≠veis
+# Arquivos sensÌveis
 .env
 SENHAS_BACKUP.txt
-*.ps1
 
 # Volumes Docker
 mosquitto/data/
 mosquitto/log/
 
-# Arquivos tempor√°rios
+# Arquivos tempor·rios
 *.tmp
 *.log
