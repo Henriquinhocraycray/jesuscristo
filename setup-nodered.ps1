@@ -85,6 +85,11 @@ Write-Host "✅ Sistema iniciado!" -ForegroundColor Green
 Write-Host "   Aguardando Node-RED inicializar..." -ForegroundColor Cyan
 Start-Sleep -Seconds 10
 
+# PASSO 4.5: INSTALAR NODE-RED-DASHBOARD
+Write-Host "`n[4.5/5] Instalando node-red-dashboard..." -ForegroundColor Yellow
+docker exec nodered-dashboard sh -c "cd /data && npm install node-red-dashboard" 2>&1 | Out-Null
+Write-Host "✅ node-red-dashboard instalado!" -ForegroundColor Green
+
 # PASSO 5: CONFIGURAR NODE-RED
 Write-Host "`n[5/5] Configurando Node-RED automaticamente..." -ForegroundColor Yellow
 
@@ -143,3 +148,4 @@ Start-Process "http://localhost:1880/ui"
 
 Write-Host "Pressione ENTER para sair..." -ForegroundColor Yellow
 Read-Host
+
