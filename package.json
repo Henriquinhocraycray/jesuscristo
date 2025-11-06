@@ -1,0 +1,24 @@
+{
+  "name": "jesuscristo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavo17042/jesuscristo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavo17042/jesuscristo/issues"
+  },
+  "homepage": "https://github.com/gustavo17042/jesuscristo#readme",
+  "dependencies": {
+    "node-red": "^4.1.1",
+    "node-red-dashboard": "^3.6.6"
+  }
+}

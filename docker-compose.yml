@@ -5,9 +5,9 @@
     ports:
       - "8883:8883"
     volumes:
-      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
-      - ./mosquitto/config/passwd:/mosquitto/config/passwd:ro
-      - ./mosquitto/config/acl.conf:/mosquitto/config/acl.conf:ro
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto/config/passwd:/mosquitto/config/passwd
+      - ./mosquitto/config/acl.conf:/mosquitto/config/acl.conf
       - ./mosquitto/certs:/mosquitto/certs:ro
       - mosquitto-data:/mosquitto/data
       - mosquitto-log:/mosquitto/log
@@ -33,7 +33,7 @@
     ports:
       - "1880:1880"
     volumes:
-      - nodered-data:/data
+      - ./nodered-data:/data
     environment:
       - MQTT_BROKER=mosquitto
       - MQTT_PORT=8883
